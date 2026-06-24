@@ -13,3 +13,9 @@ export async function buscarPorEmail(email) {
 export async function buscarPorId(id) {
   return prisma.usuario.findUnique({ where: { id } });
 }
+
+export async function listarUsuarios() {
+    const usuarios = await prisma.usuario.findMany();
+
+    return usuarios;
+}

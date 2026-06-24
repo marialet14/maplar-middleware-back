@@ -27,6 +27,20 @@ export async function cadastro(req, res) {
   }
 }
 
+export async function listarUsuarios(req, res) {
+    try {
+      const usuarios = await userRepo.listarUsuarios();
+
+      return res.status(200).json(usuarios);
+    } catch (error) {
+      console.error(error);
+
+      return res.status(500).json({
+        erro: 'Erro ao listar usuários.',
+      });
+    }
+  }
+
 export async function login(req, res) {
   try {
     const { email, senha } = req.body;

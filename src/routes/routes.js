@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as imovelController from '../controllers/imovelController.js';
+import * as userController from '../controllers/userController.js';
 import userRoutes from './userRoutes.js';
 import { verificarToken } from '../middlewares/auth.middleware.js';
 
@@ -14,5 +15,6 @@ routes.get('/imoveis', verificarToken, imovelController.listar);
 routes.get('/imoveis/:id', verificarToken, imovelController.buscarPorId);
 routes.put('/imoveis/:id', verificarToken, imovelController.atualizar);
 routes.delete('/imoveis/:id', verificarToken, imovelController.deletar);
+routes.get('/usuarios', userController.listarUsuarios);
 
 export default routes;
